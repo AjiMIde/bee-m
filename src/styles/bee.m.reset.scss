@@ -1,0 +1,123 @@
+/**
+ * **目的**
+ * 重置浏览器 css 样式，企图在 pc 端、移动端（mobile/pad）不同浏览器使用统一的样式
+ *
+ * **更新与说明**
+ * 本样式重置始于2014年4月，多个版本的改动（版本改动已迷失历史长河中）
+ * 经过多方改动，及近期的再次学习，形成这份 fzsCssReset.css
+ * 由于时代在变，技术也在进步，此 reset 有其进步的空间，也有其选择使用的空间
+ *
+ * 本css reset 主要由三部分组成：
+ * 1. 引用  normalize.css
+ * 2. 增加一些 normalize.css 没有的，但符合中文等习惯的 css reset
+ * 3. 私人的、主观的、css reset
+ *
+ * **参考**
+ * https://github.com/necolas/normalize.css
+ * http://necolas.github.io/normalize.css/2.0.1/test.html
+ *
+ * https://segmentfault.com/a/1190000003021766
+ * https://segmentfault.com/a/1190000003025718
+ * https://segmentfault.com/q/1010000002991779/a-1020000002994616
+ *
+ * http://amazeui.org/css/typography
+ *
+ * **维护与版本**
+ * From fzs-front-end
+ *
+ * V1.0.0          18-03-20
+ * V1.0.1          18-07-01 添加抗锯齿功能
+ * V1.0.1          18-07-01 首次添加
+ * V1.0.2          18-08-01 修改
+ * V1.0.3          19-03-20 修改，重构文件结构
+ *
+ */
+
+/**
+ * 引用 normalize.css
+ * normalize.css 已经重置了包含：多余的margin/padding、行高的置定、部分元素的显示模式置block、代码文字 pre/code 置等衬线字体
+ * mozilla/webkit 不同样式的统一重置等
+ * 当前版本 8.0.1 2019-03
+ */
+@import './utils/normalize.css/normalize';
+
+/**
+ * 字体
+ */
+@import './base/variable/font.variable';
+
+/**
+ * body 重置
+ */
+body {
+  font-family: $font-am-sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  // 有bug已经放弃使用
+  //-webkit-overflow-scrolling: touch; // 避免 ios 一些滚动的bug
+}
+
+/**
+ * 有些浏览器，form 元素无法继承父元素的字体
+ */
+button, input, optgroup, select, textarea {
+  font-family: $font-am-sans-serif;
+  font-size: 100%;
+}
+
+/**
+ * code, pre 等元素的字体使用等衬线
+ */
+code, pre, kbd, samp {
+  font-family: $font-am-monospace;
+}
+
+/**
+ * table 重置
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+/**
+ * border-box 重置
+ */
+div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  box-sizing: border-box;
+}
+
+/**
+ * margin, padding 重置
+ */
+object, iframe, p, blockquote, pre, code, em, img, small, ul, li, dl, dt, dd, ol, fieldset, canvas, audio, video {
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * 主观的，带特色的 css reset，这一段可参考、删除、修改等
+ * ===========================================================================
+ */
+/*
+ * 设置基本的链接样式, 并去掉 IE 10+ 点击链接时的灰色背景
+ */
+a {
+  text-decoration: none;
+  color: inherit;
+  &:hover {
+    text-decoration: underline;
+  }
+  &:active {
+    background-color: transparent;
+  }
+}
+
+/**
+ ul li 重置 list-style
+ */
+ul, li {
+  list-style: none;
+}
+

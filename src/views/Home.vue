@@ -16,3 +16,8 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  @import "../styles/bee.m.reset";
+  @import "../styles/bee.m.markdown";
+</style>
