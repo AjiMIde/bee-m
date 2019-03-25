@@ -1,1 +1,8 @@
 @import "./utils/github.markdown.css/github-markdown";
+
+ul {
+  //margin: 0 0 0 10px;
+  &, li {
+    list-style: unset;
+  }
+}
