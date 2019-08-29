@@ -1,0 +1,57 @@
+@import "./base/variable/color";
+
+$cl-white: #fff;
+$cl-bd: #ccc;
+$sz-md: 14px;
+
+@mixin btn-mixin($fz, $lh, $bdrs, $pd) {
+  font-size: $fz;
+  line-height: $lh;
+  border-radius: $bdrs;
+  padding: $pd;
+}
+
+.bee-btn {
+  color: $cl-default;
+  user-select: none;
+  cursor: pointer;
+  border: 1px solid;
+  background-color: $cl-white;
+  border-color: $cl-bd;
+  @include btn-mixin(14px, 1.42857143, 4px, 6px 12px)
+}
+.bee-btn-bg {
+  @include btn-mixin(18px, 1.33, 6px, 10px 16px)
+}
+.bee-btn-md {
+  @include btn-mixin(14px, 1.42857143, 4px, 6px 12px)
+}
+.bee-btn-sm {
+  @include btn-mixin(12px, 1.5, 3px, 5px 10px)
+}
+
+.bee-btn-primary {
+  color: #fff;
+  background-color: $cl-primary;
+  border-color: $cl-primary;
+}
+.bee-btn-danger {
+  color: #fff;
+  background-color: $cl-danger;
+  border-color: $cl-danger;
+}
+.bee-btn-success {
+  color: #fff;
+  background-color: $cl-success;
+  border-color: $cl-success;
+}
+.bee-btn-info {
+  color: #fff;
+  background-color: $cl-info;
+  border-color: $cl-info;
+}
+.bee-btn-warn {
+  color: #fff;
+  background-color: $cl-warn;
+  border-color: $cl-warn;
+}
