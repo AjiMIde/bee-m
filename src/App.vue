@@ -60,14 +60,14 @@ require('./styles/icon/iconfont')
       font-size: 16px;
       color: #314659;
       text-align: left;
-      .blk-title {
+      .title {
         font-size: 18px;
         font-weight: bold;
       }
-      .blk-content {
+      .content {
         padding: 20px;
       }
-      .blk-code {
+      .code {
         display: inline-block;
         color: #ff7875;
         padding: 6px 8px;

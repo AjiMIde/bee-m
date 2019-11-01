@@ -1,6 +1,7 @@
 /**flex布局，12栅格**/
-.bee-flex-box {
+.bee-fb {
   display: flex;
+  flex-wrap: wrap;
 }
 
 // direction: column
@@ -8,24 +9,19 @@
   flex-direction: column;
 }
 
-// align-item :center
-.bee-fb-M {
-  align-items: center;
-}
-
-// justify-content :center
-.bee-fb-E {
-  justify-content: center;
+// direction: row
+.bee-fb-R {
+  flex-direction: row;
 }
 
 
 // flex-1 ~ flex-12
 @for $i from 1 through 12 {
-  .bee-flex-f-#{$i} { flex: $i; }
+  .bee-fx-f-#{$i} { flex: $i; }
 }
 // width-1 ~ width-12
 @for $i from 1 through 12 {
-  .bee-flex-w-#{$i} { width: $i*100%/12; }
+  .bee-fx-w-#{$i} { width: $i*100%/12; }
 }
 
 /****flex垂直居中***/
