@@ -1,13 +1,35 @@
 /**flex布局，12栅格**/
-.bee-flex-box{
+.bee-flex-box {
   display: flex;
 }
 
+// direction: column
+.bee-fb-C {
+  flex-direction: column;
+}
+
+// align-item :center
+.bee-fb-M {
+  align-items: center;
+}
+
+// justify-content :center
+.bee-fb-E {
+  justify-content: center;
+}
+
+
+// flex-1 ~ flex-12
 @for $i from 1 through 12 {
   .bee-flex-f-#{$i} { flex: $i; }
 }
+// width-1 ~ width-12
+@for $i from 1 through 12 {
+  .bee-flex-w-#{$i} { width: $i*100%/12; }
+}
 
 /****flex垂直居中***/
+//.bee-flex-
 
 /***一行、双行、三行，超出 hide ...**/
 .bee-flex-one-row {

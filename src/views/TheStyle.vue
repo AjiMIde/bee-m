@@ -1,12 +1,30 @@
 <template>
-  <div class="home">
-
-    <the-style></the-style>
+  <div class="the-style">
+    <div class="blk">
+      <div class="blk-title">flex-box使用</div>
+      <div class="blk-content">
+        <div class="blk-code">.bee-flex-box>.bee-flex-f-1(2,3,...12)</div>
+      </div>
+    </div>
 
     <div class="bee-flex-box">
       <div class="bee-flex-f-1">AAA</div>
       <div class="bee-flex-f-2">BBB</div>
       <div class="bee-flex-f-3">CCC</div>
+    </div>
+
+    <div class="bee-flex-box">
+      <div class="bee-flex-f-1">
+        <div class="bee-flex-box bee-flex-column">
+          <div class="bee-flex-f-1">AA</div>
+          <div class="bee-flex-f-1">BB</div>
+          <div class="bee-flex-f-1">CC</div>
+        </div>
+      </div>
+      <div class="bee-flex-f-1 bee-flex-box bee-flex-column">
+          <div class="bee-flex-w-6">AA</div>
+          <div class="bee-flex-w-12">BB</div>
+      </div>
     </div>
 
     <div class="btn-example">
@@ -32,6 +50,7 @@
         </div>
       </bee-popup>
     </div>
+
   </div>
 </template>
 
@@ -39,12 +58,10 @@
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
 import BeePopup from '@/components/bee-popup.vue'
-import TheStyle from './TheStyle'
 
 export default {
   name: 'home',
   components: {
-    TheStyle,
     BeePopup
   },
   data () {
@@ -62,14 +79,13 @@ export default {
 </script>
 
 <style lang="scss">
-</style>
-<style lang="scss">
   .home {
     .bee-flex-box {
       > div {
         border: 1px solid #ccc;
         border-radius: 4px;
         padding: 4px 8px;
+        margin: 10px;
       }
     }
   }

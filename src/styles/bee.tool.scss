@@ -1,0 +1,29 @@
+// 背景100%使用
+.bee-bg-common {
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+}
+
+// fixed 样式
+.bee-fixed {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+// mask 遮罩背景，日常使用中，应根据实际情况，指定一个 z-index
+.bee-mask {
+  @extend .bee-fixed;
+  background: rgba(0, 0, 0, .6);
+}
+
+// absolute center 垂直居中
+.bee-abs-center {
+  position: absolute;
+  top: 50%;
+  left: 50px;
+  transform: translate(-50%, -50%);
+}
+
