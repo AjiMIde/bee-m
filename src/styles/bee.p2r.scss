@@ -1,0 +1,5 @@
+$DeviceWidthPX: 1080;
+
+@function p2r($px) {
+  @return $px / ($DeviceWidthPX / 10.0) * 1rem;
+}
