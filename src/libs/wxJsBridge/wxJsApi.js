@@ -38,7 +38,7 @@ export default {
         timestamp: wxConfig.timestamp + '',       // 必填，生成签名的时间戳
         nonceStr: wxConfig.nonceStr + '',         // 必填，生成签名的随机串
         signature: wxConfig.signature + '',       // 必填，签名，见附录1
-        jsApiList,                                // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        jsApiList                                // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
       })
       return true
     } else {
@@ -60,7 +60,8 @@ export default {
           desc: shareObj.desc || '',    // 分享描述
           link: shareObj.link,          // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
           imgUrl: shareObj.imgUrl || '', // 分享图片，请使用服务器图片地址
-          success: () => { }            // 设置成功
+          success: () => {
+          }            // 设置成功
         }
         wx.updateAppMessageShareData(param)
       })
@@ -69,6 +70,35 @@ export default {
       console.error('wx ready 失败，引入文件失败或缺少link参数')
       return false
     }
+  },
+
+  /**
+   * 调用微信支付，此调用可不使用 init() 来初使化微信 js sdk 环境，也不需要引入 wx js bridge 文件
+   *
+   * @param data {object} {
+   *    appId: 公众号名称，由商户传入, timeStamp: 时间戳，自1970年以来的秒数,
+   *    nonceStr: 随机串, package: 诸如像：prepay_id=u802345jgfjsdfgsdg888, signType: 微信签名方式（如 MD5）
+   *    paySign: 微信签名 }
+   * @param successFun
+   * @param cancelFun
+   * @param errFun
+   */
+  wxPayRequest (data, successFun, cancelFun, errFun) {
+    window.WeixinJSBridge && window.WeixinJSBridge.invoke(
+      'getBrandWCPayRequest', { ...data }, (res) => {
+        if (res.err_msg === 'get_brand_wcpay_request:ok') {
+          // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
+          // 由于微信成功回调的不可靠性，需要单独做一个http方法轮询订单状态
+          console.info('wechat pay success')
+          successFun && typeof successFun === 'function' && successFun()
+        } else if (res.err_msg === 'get_brand_wcpay_request:cancel') {
+          console.warn('wechat pay cancel')
+          cancelFun && typeof cancelFun === 'function' && cancelFun()
+        } else {
+          console.error('wechat pay error')
+          errFun && typeof errFun === 'function' && errFun()
+        }
+      })
   }
 
 }
