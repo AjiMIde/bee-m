@@ -1,5 +1,5 @@
 <template>
-  <div class="the-style" style="padding: 0 30px;">
+  <div class="exp-the-style" style="padding: 0 30px;">
 
     <div class="blk"> <div class="code">.bee-fb>.bee-fx-f-1(2,3,...12)</div> </div>
 
@@ -65,19 +65,6 @@
       </div>
     </div>
 
-    <div class="btn-example">
-      <button class="bee-btn bee-btn-md">普通按钮</button>
-      <button class="bee-btn bee-btn-sm">小按钮</button>
-      <button class="bee-btn bee-btn-bg">大按钮</button>
-    </div>
-    <div class="btn-example">
-      <button class="bee-btn bee-btn-primary">首选项</button>
-      <button class="bee-btn bee-btn-danger">危险</button>
-      <button class="bee-btn bee-btn-success">成功</button>
-      <button class="bee-btn bee-btn-info">信息</button>
-      <button class="bee-btn bee-btn-warn">警告</button>
-    </div>
-
     <div>
       <button class="bee-btn" @click="toggle('show1')">显示</button>
       <bee-popup v-show="show1" @onMaskTap="toggle('show1')">
@@ -117,7 +104,6 @@ export default {
 </script>
 
 <style lang="scss">
-  .home {
     .bee-fb {
       margin-bottom: 20px;
       > div {
@@ -126,6 +112,5 @@ export default {
         padding: 4px 8px;
         margin: 10px;
       }
-    }
   }
 </style>
