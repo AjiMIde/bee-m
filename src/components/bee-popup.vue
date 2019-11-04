@@ -1,14 +1,22 @@
 <template>
-  <div class="bee-popup">
-    <div class="bee-popup-mask" @click.self="maskTap"></div>
-    <div class="bee-popup-content" :class="'bee-popup-content-' + position" @click.stop="maskTap">
-      <slot></slot>
-    </div>
-    <div class="bee-popup-close" @click="maskTap">
-      <svg class="bee-icon" aria-hidden="true" color="#fff">
-        <use xlink:href="#icon-close"></use>
-      </svg>
-    </div>
+  <div class="bee-pop">
+    <transition name="popup">
+      <div class="bee-popup" v-show="show">
+        <transition name="popup">
+          <div class="bee-popup-mask" v-show="show" @click.self="maskTap"></div>
+        </transition>
+        <transition name="popup-content">
+          <div class="bee-popup-content" v-show="show" :class="'bee-popup-content-' + position" @click.stop="maskTap">
+            <slot></slot>
+          </div>
+        </transition>
+        <div class="bee-popup-close" @click="maskTap">
+          <svg class="bee-icon" aria-hidden="true" color="#fff">
+            <use xlink:href="#icon-close"></use>
+          </svg>
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -21,10 +29,13 @@ export default {
     position: {
       type: [String],
       default: 'center'
+    },
+    show: {
+      type: [Boolean],
+      default: false
     }
   },
-  computed: {
-  },
+  computed: {},
   methods: {
     maskTap ($evt) {
       this.$emit(EVENT_MASK_TAP, '')
@@ -38,9 +49,13 @@ export default {
   @import "../styles/base/variable/color";
   @import "../styles/bee.tool";
 
-  .bee-popup {
-    @extend .bee-fixed;
-    z-index: $z-index-bee-popup;
+  .bee-pop {
+
+    .bee-popup {
+      @extend .bee-fixed;
+      z-index: $z-index-bee-popup;
+    }
+
     .bee-popup-mask {
       @extend .bee-fixed;
       z-index: $z-index-bee-popup;
@@ -78,6 +93,46 @@ export default {
     .bee-popup-content-bottom {
       justify-content: center;
       align-items: flex-end;
+    }
+
+    .popup-enter-active, .popup-leave-active {
+      transition: all .5s;
+    }
+    .popup-enter {
+      opacity: 0;
+      transform: scale(.98);
+    }
+    .popup-enter-to {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .popup-leave {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .popup-leave-to {
+      opacity: 0;
+      transform: scale(.98);
+    }
+
+    .popup-content-enter-active, .popup-content-leave-active {
+      transition: all .5s;
+    }
+    .popup-content-enter {
+      opacity: 0;
+      transform: translate(0, 5%);
+    }
+    .popup-content-enter-to {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+    .popup-content-leave {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+    .popup-content-leave-to {
+      opacity: 0;
+      transform: translate(0, 5%);
     }
   }
 </style>
