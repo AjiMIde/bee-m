@@ -1,8 +1,17 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <div id="nav" style="text-align: left;">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
+      <div>
+        <h3>Basic</h3>
+        <router-link to="/examples/the-style">the-style</router-link><br>
+        <router-link to="/examples/buttons">buttons</router-link>
+      </div>
+      <div>
+        <h3>Components: </h3>
+        <router-link to="/examples/bee-pop">bee-popup</router-link>
+      </div>
     </div>
     <router-view/>
   </div>

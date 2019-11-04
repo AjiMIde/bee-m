@@ -1,15 +1,17 @@
 <template>
-  <div class="home">
-
+  <div class="test">
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
+import BeePopup from '@/components/bee-popup.vue'
+
 export default {
   name: 'home',
   components: {
+    BeePopup
   },
   data () {
     return {
@@ -27,11 +29,13 @@ export default {
 
 <style lang="scss">
   .home {
-    .bee-flex-box {
+    .bee-fb {
+      margin-bottom: 20px;
       > div {
         border: 1px solid #ccc;
         border-radius: 4px;
         padding: 4px 8px;
+        margin: 10px;
       }
     }
   }
