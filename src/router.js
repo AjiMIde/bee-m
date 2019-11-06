@@ -11,8 +11,8 @@ const examples = [{
   path: '/examples/bee-pop',
   component: () => import(/* webpackChunkName: "bee-pop" */ './views/examples/bee-pop.vue')
 }, {
-  path: '/examples/bee-toast',
-  component: () => import(/* webpackChunkName: "bee-toast" */ './views/examples/bee-toast.vue')
+  path: '/examples/bee-dialog',
+  component: () => import(/* webpackChunkName: "bee-toast" */ './views/examples/bee-dialog.vue')
 }, {
   path: '/examples/buttons',
   component: () => import(/* webpackChunkName: "buttons" */ './views/examples/buttons.vue')

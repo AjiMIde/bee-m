@@ -53,6 +53,7 @@ export default {
     toggleToast () {
       this.show = !this.show
     }
+
   },
   mounted () {
     console.log(',,,,', this)

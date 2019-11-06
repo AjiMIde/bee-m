@@ -23,7 +23,7 @@
         <h3>Components: </h3>
         <div class="nav-list">
           <router-link to="/examples/bee-pop">bee-popup</router-link>
-          <router-link to="/examples/bee-toast">bee-toast</router-link>
+          <router-link to="/examples/bee-dialog">bee-dialog</router-link>
         </div>
       </div>
     </div>
