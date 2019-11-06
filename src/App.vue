@@ -4,13 +4,27 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
       <div>
-        <h3>Basic</h3>
-        <router-link to="/examples/the-style">the-style</router-link><br>
-        <router-link to="/examples/buttons">buttons</router-link>
+        <h3>Styles</h3>
+        <div class="nav-list">
+          <router-link to="/examples/reset">reset&others</router-link>
+          <router-link to="/examples/flex">flex</router-link>
+          <router-link to="/examples/buttons">buttons</router-link>
+          <router-link to="/examples/bee-icons">icons</router-link>
+        </div>
+      </div>
+
+      <div>
+        <h3>Styles</h3>
+        <div class="nav-list">
+          <router-link to="/examples/the-style">the-style</router-link>
+        </div>
       </div>
       <div>
         <h3>Components: </h3>
-        <router-link to="/examples/bee-pop">bee-popup</router-link>
+        <div class="nav-list">
+          <router-link to="/examples/bee-pop">bee-popup</router-link>
+          <router-link to="/examples/bee-toast">bee-toast</router-link>
+        </div>
       </div>
     </div>
     <router-view/>
@@ -31,12 +45,16 @@ require('./styles/icon/iconfont')
 }
 
 #nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
+  padding: 20px;
+  .nav-list {
+    display: flex;
+    a {
+      display: inline-block;
+      width: 33.3333%;
       color: #42b983;
+      &.router-link-exact-active {
+        color: red;
+      }
     }
   }
 }
@@ -58,6 +76,7 @@ require('./styles/icon/iconfont')
   @import "./styles/bee.markdown";
   @import "./styles/bee.flex";
   @import "./styles/bee.btn";
+  @import "./styles/bee.tool";
 </style>
 
 <!--自定义的可阅读的小型格式-->

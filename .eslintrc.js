@@ -13,6 +13,7 @@ module.exports = {
     'no-trailing-spaces': 'off',
     'no-multiple-empty-lines': 'off',
     'no-multi-spaces': 'off',
+    'comma-dangle': 'off',
   },
   parserOptions: {
     parser: 'babel-eslint'
