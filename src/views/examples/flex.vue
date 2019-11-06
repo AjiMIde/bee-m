@@ -1,5 +1,5 @@
 <template>
-  <div class="exp-the-style" style="padding: 0 30px;">
+  <div class="exp-flex" style="padding: 0 30px;">
 
     <div class="blk"> <div class="code">.bee-fb>.bee-fx-f-1(2,3,...12)</div> </div>
 

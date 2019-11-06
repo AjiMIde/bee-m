@@ -5,14 +5,23 @@ import Home from './views/Home.vue'
 Vue.use(Router)
 
 const examples = [{
-  path: '/examples/bee-pop',
-  component: () => import(/* webpackChunkName: "test" */ './views/examples/bee-pop.vue')
+  path: '/examples/bee-icons',
+  component: () => import(/* webpackChunkName: "bee-icons" */ './views/examples/bee-icons.vue')
 }, {
-  path: '/examples/the-style',
-  component: () => import(/* webpackChunkName: "test" */ './views/examples/the-style.vue')
+  path: '/examples/bee-pop',
+  component: () => import(/* webpackChunkName: "bee-pop" */ './views/examples/bee-pop.vue')
+}, {
+  path: '/examples/bee-toast',
+  component: () => import(/* webpackChunkName: "bee-toast" */ './views/examples/bee-toast.vue')
 }, {
   path: '/examples/buttons',
-  component: () => import(/* webpackChunkName: "test" */ './views/examples/buttons.vue')
+  component: () => import(/* webpackChunkName: "buttons" */ './views/examples/buttons.vue')
+}, {
+  path: '/examples/reset',
+  component: () => import(/* webpackChunkName: "reset" */ './views/examples/reset.vue')
+}, {
+  path: '/examples/flex',
+  component: () => import(/* webpackChunkName: "flex" */ './views/examples/flex.vue')
 }]
 
 const routes = examples.concat([

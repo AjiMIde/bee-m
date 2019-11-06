@@ -6,12 +6,10 @@
 <script>
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
-import BeePopup from '@/components/bee-popup.vue'
 
 export default {
   name: 'home',
   components: {
-    BeePopup
   },
   data () {
     return {
