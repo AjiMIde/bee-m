@@ -1,3 +1,6 @@
+/**
+ * 引入 markdown 库，在一些使用 marked.js 格式化 markdown 文件成 html 时进行样式美化
+ */
 @import "./utils/github.markdown.css/github-markdown";
 
 ul {
