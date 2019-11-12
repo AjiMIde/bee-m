@@ -1,15 +1,18 @@
 <template>
   <div class="test">
+    <bee-date-picker rowFormat="y-M-d" ref="datePicker" @valuechange="valuechange" @select="select"
+                     @change="change"></bee-date-picker>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
+import BeeDatePicker from '@/components/picker/bee-date-picker.vue'
 
 export default {
   name: 'home',
   components: {
+    BeeDatePicker
   },
   data () {
     return {
@@ -20,7 +23,20 @@ export default {
   methods: {
     toggle (p) {
       this[p] = !this[p]
+    },
+    valuechange (a, b, c) {
+      console.log(a, b, c, 'valueChange')
+    },
+    select (a, b, c) {
+      console.log(a, b, c, 'select')
+    },
+    change (a, b, c) {
+      console.log(a, b, c, 'change')
     }
+  },
+  mounted () {
+    window.h = this
+    this.$refs.datePicker.show()
   }
 }
 </script>

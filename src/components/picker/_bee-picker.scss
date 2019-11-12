@@ -1,0 +1,66 @@
+@import "../../styles/base/variable/z-index";
+@import "../../styles/base/variable/color";
+
+/*这一段指出了可以覆盖的部分，以方便不同情况进行样式的重写*/
+/*当需要小规模更改样式时，只需要将某些样式提取，并更改即可*/
+/*当需要大规模更改时，需要把整个 .bee-picker 拷贝，并更改*/
+.bee-picker {
+
+  $bee-picker-z-index: $z-index-bee-popup;
+  $bee-picker-bg-cl: rgba(0, 0, 0, .6);
+
+  $panel-bg-cl: #fff;
+
+  $btn-cl-1: $cl-primary;
+  $btn-cl-2: #999;
+  $btn-fz: 16px;
+  $btn-pd: 10px 12px;
+  $btn-bd: 1px solid #e4e4e4;
+
+  $wheel-wrapper-pd: 0 16px;
+  $wheel-item-h: 36px;
+  $wheel-item-fz: 16px;
+  $wheel-item-cl: #333;
+
+  $picker-footer-h: 20px;
+
+  z-index: $bee-picker-z-index;
+  background-color: $bee-picker-bg-cl;
+
+  .picker-panel { background-color: $panel-bg-cl; }
+
+  .picker-choose {
+    font-size: $btn-fz;
+    padding: $btn-pd;
+    border-bottom: $btn-bd;
+    .confirm { color: $btn-cl-1; }
+    .confirm.scrolling { color: $btn-cl-2; }
+    .cancel { color: $btn-cl-2; }
+  }
+
+  .picker-content {
+    .mask-top, .mask-bottom {
+      height: $wheel-item-h*2;  // 两个 item 单位
+    }
+  }
+
+  .wheel-wrapper {
+    padding: $wheel-wrapper-pd;
+    .wheel {
+      height: $wheel-item-h*5;
+      .wheel-scroll {
+        margin-top: $wheel-item-h*2;
+        line-height: $wheel-item-h;
+        .wheel-item {
+          font-size: $wheel-item-fz;
+          height: $wheel-item-h;
+          color: $wheel-item-cl;
+        }
+      }
+    }
+  }
+
+  .picker-footer {
+    height: $picker-footer-h;
+  }
+}

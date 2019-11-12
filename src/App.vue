@@ -19,13 +19,23 @@
           <router-link to="/examples/the-style">the-style</router-link>
         </div>
       </div>
-      <div>
+
+       <div>
         <h3>Components: </h3>
         <div class="nav-list">
           <router-link to="/examples/bee-pop">bee-popup</router-link>
           <router-link to="/examples/bee-dialog">bee-dialog</router-link>
+          <router-link to="/examples/bee-dialog">bee-dialog</router-link>
         </div>
       </div>
+
+      <div>
+        <h3>Picker</h3>
+        <div class="nav-list">
+          <router-link to="/examples/bee-picker">bee-picker</router-link>
+        </div>
+      </div>
+
     </div>
     <router-view/>
   </div>
