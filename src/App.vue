@@ -1,48 +1,42 @@
 <template>
-  <div id="app">
-    <div id="nav" style="text-align: left;">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-      <div>
-        <h3>Styles</h3>
-        <div class="nav-list">
-          <router-link to="/examples/reset">reset&others</router-link>
-          <router-link to="/examples/flex">flex</router-link>
-          <router-link to="/examples/buttons">buttons</router-link>
-          <router-link to="/examples/bee-icons">icons</router-link>
-        </div>
-      </div>
-
-      <div>
-        <h3>Styles</h3>
-        <div class="nav-list">
-          <router-link to="/examples/the-style">the-style</router-link>
-        </div>
-      </div>
-
-       <div>
-        <h3>Components: </h3>
-        <div class="nav-list">
-          <router-link to="/examples/bee-pop">bee-popup</router-link>
-          <router-link to="/examples/bee-dialog">bee-dialog</router-link>
-          <router-link to="/examples/bee-dialog">bee-dialog</router-link>
-        </div>
-      </div>
-
-      <div>
-        <h3>Picker</h3>
-        <div class="nav-list">
-          <router-link to="/examples/bee-picker">bee-picker</router-link>
-        </div>
-      </div>
-
+  <div id="app" @click.self="toggleContentWidth(false)">
+    <div id="nav">
+      <nav-list></nav-list>
     </div>
-    <router-view/>
+
+    <div id="content" @click="toggleContentWidth(true)" :class="{'content-big': contentBig}">
+      <router-view/>
+    </div>
+
   </div>
 </template>
 
 <script>
+import NavList from './views/nav'
+
 require('./styles/icon/iconfont')
+
+export default {
+  components: {
+    NavList
+  },
+  data () {
+    return {
+      contentBig: true
+    }
+  },
+  methods: {
+    toggleContentWidth (bool) {
+      this.contentBig = bool
+    }
+  },
+  mounted () {
+  },
+  created () {
+  },
+  watch: {
+  }
+}
 </script>
 
 <style lang="scss">
@@ -92,7 +86,26 @@ require('./styles/icon/iconfont')
 <!--自定义的可阅读的小型格式-->
 <style lang="scss">
   @import "./styles/base/variable/font";
+  html, body{
+    height: 100%;
+  }
   #app {
+    position: relative;
+    min-height: 100%;
+    overflow: auto;
+    #content {
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 200px;
+      position: absolute;
+      background-color: rgba(211, 211, 211, 0.8);
+      overflow: auto;
+    }
+    .content-big {
+      left: 50px !important;
+    }
+
     .blk {
       font-family: $font-ant-d;
       font-size: 16px;

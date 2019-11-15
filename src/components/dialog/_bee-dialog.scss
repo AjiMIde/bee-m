@@ -1,0 +1,30 @@
+$bee-loading-trans: all 0.3s ease;
+.bee-loading-ani {
+  &-enter-active {
+    transition: $bee-loading-trans;
+  }
+  &-leave-active {
+    transition: $bee-loading-trans;
+  }
+  &-leave-to {
+    transform: scale(.95);
+    opacity: 0;
+  }
+  &-enter {
+    transform: scale(.9);
+    opacity: 0;
+  }
+}
+
+@keyframes loading-rotate {
+  0% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+

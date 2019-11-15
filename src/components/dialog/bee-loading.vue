@@ -1,16 +1,19 @@
 <template>
-  <div class="bee-loading" v-show="show">
-    <div class="bee-fixed"></div>
-    <div class="bee-l-container bee-fixed bee-fb bee-fb-C">
-      <transition name="bee-loading-ani">
-        <div class="bee-l-body" v-show="show">
-          <div class="bee-l-loading-icon">
-            <bee-icon icon="loading-b" color="#ffffff" :font-size="50"></bee-icon>
+  <div class="bee-loading">
+
+    <transition name="bee-loading-ani">
+      <div class="bee-l-container bee-fixed bee-fb-C" v-show="show">
+        <transition name="bee-loading-ani">
+          <div class="bee-l-body" v-show="show">
+            <div class="bee-l-loading-icon">
+              <bee-icon icon="loading-b" color="#ffffff" :font-size="50"></bee-icon>
+            </div>
+            <div class="bee-l-loading-content" v-if="content !== ''">{{content || ''}}</div>
           </div>
-          <div class="bee-l-loading-content" v-if="content !== ''">{{content || ''}}</div>
-        </div>
-      </transition>
+        </transition>
       </div>
+    </transition>
+
   </div>
 </template>
 
@@ -21,6 +24,7 @@ export default {
   components: { BeeIcon },
   data () {
     this.timeout = null
+
     return {
       show: false,
 
@@ -54,21 +58,24 @@ export default {
 
   },
   mounted () {
+    window.beeEventBus && window.beeEventBus.$on('eventShowLoading', (content, duration) => {
+      this.showLoading(content, duration)
+    })
+    window.beeEventBus && window.beeEventBus.$on('eventHideLoading', () => {
+      this.hideLoading()
+    })
   },
   created () {
   },
-  watch: {
-  }
+  watch: {}
 }
 </script>
 
 <style lang="scss">
   @import "../../styles/base/variable/color";
+  @import "./_bee-dialog";
 
   .bee-loading {
-    .bee-t-mask {
-
-    }
     .bee-l-container {
       justify-content: center;
       align-items: center;
@@ -79,6 +86,7 @@ export default {
       width: 50%;
     }
     .bee-l-loading-icon {
+      animation: linear 2s loading-rotate infinite;
       .bee-icon {
         padding: 12px 0 6px 0;
       }
@@ -87,24 +95,6 @@ export default {
       color: #fff;
       font-size: 1.2em;
       padding: 12px 0;
-    }
-
-    $bee-login-trans: all 0.3s ease-in-out;
-    .bee-loading-ani {
-      &-enter-active {
-        transition: $bee-login-trans;
-      }
-      &-leave-active {
-        transition: $bee-login-trans;
-      }
-      &-leave-to {
-        transform: scale(.98);
-        opacity: 0;
-      }
-      &-enter {
-        transform: scale(.95);
-        opacity: 0;
-      }
     }
   }
 </style>

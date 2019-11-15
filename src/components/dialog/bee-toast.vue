@@ -1,16 +1,17 @@
 <template>
-  <div class="bee-toast" v-if="show">
-    <div class="bee-t-mask bee-fixed"></div>
-    <div class="bee-t-container bee-fixed bee-fb bee-fb-C">
-      <div class="bee-t-body">
-        <div class="bee-t-loading-icon">
-          <bee-icon v-if="icon === 1" icon="success" color="#ffffff" :font-size="50"></bee-icon>
-          <bee-icon v-if="icon === 2" icon="fail" color="#ffffff" :font-size="50"></bee-icon>
-          <bee-icon v-if="icon === 3" icon="warn" color="#ffffff" :font-size="50"></bee-icon>
-        </div>
-        <div class="bee-t-loading-content">{{content || ''}}</div>
+  <div class="bee-toast">
+    <transition name="bee-loading-ani">
+      <div class="bee-t-container bee-fixed bee-fb-C" v-show="show">
+        <transition name="bee-loading-ani">
+          <div class="bee-t-body" v-show="show">
+            <div class="bee-t-loading-icon">
+              <bee-icon :icon="icon" color="#ffffff" :font-size="50"></bee-icon>
+            </div>
+            <div class="bee-t-loading-content">{{content || ''}}</div>
+          </div>
+        </transition>
       </div>
-    </div>
+    </transition>
   </div>
 </template>
 
@@ -19,8 +20,7 @@ import BeeIcon from '../bee-icon'
 
 export default {
   components: { BeeIcon },
-  props: {
-  },
+  props: {},
   data () {
     this.timeout = null
 
@@ -28,15 +28,15 @@ export default {
       show: false,
 
       content: '',
-      icon: 0, // 0 不设置icon, 1 设置为成功, 2 设置为不成功, 3 设置为 warning
+      icon: '',             // '' 不设置icon, success/fail/warn
       duration: 1500,
     }
   },
   methods: {
-    showToast (content = '', icon = 0, duration) {
-      this.content = content || ''
-      this.icon = [0, 1, 2, 3].indexOf(icon) === -1 ? 0 : icon
-      this.duration = duration || this.duration
+    showToast (content = '', icon = '', duration = 1500) {
+      this.content = content
+      this.icon = ['success', 'fail', 'warning'].indexOf(icon) === -1 ? '' : icon
+      this.duration = duration
 
       window.clearTimeout(this.timeout)
 
@@ -47,16 +47,25 @@ export default {
         this.hideToast()
       }, parseInt(this.duration))
     },
+
     hideToast () {
+      window.clearTimeout(this.timeout)
       this.show = false
     },
+
     toggleToast () {
       this.show = !this.show
     }
 
   },
   mounted () {
-    console.log(',,,,', this)
+    window.beeEventBus && window.beeEventBus.$on('eventShowToast', (content = '', icon = '', duration = 1500) => {
+      this.showToast(content, icon, duration)
+    })
+
+    window.beeEventBus && window.beeEventBus.$on('eventHideToast', () => {
+      this.hideToast()
+    })
   },
   created () {
     // this.$on('xxx', (a, b, c) => {
@@ -69,6 +78,8 @@ export default {
 
 <style lang="scss">
   @import "../../styles/base/variable/color";
+  @import "./_bee-dialog";
+
   .bee-toast {
     .bee-t-mask {
 
