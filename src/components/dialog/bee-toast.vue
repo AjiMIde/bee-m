@@ -1,17 +1,21 @@
 <template>
-  <div class="bee-toast">
-    <transition name="bee-loading-ani">
-      <div class="bee-t-container bee-fixed bee-fb-C" v-show="show">
-        <transition name="bee-loading-ani">
-          <div class="bee-t-body" v-show="show">
-            <div class="bee-t-loading-icon">
+  <div class="bee-dialog bee-toast">
+
+    <transition name="bee-dialog-ani">
+      <div class="bee-dialog-container" v-show="show">
+
+        <transition name="bee-dialog-ani">
+          <div class="bee-dialog-body" v-show="show">
+            <div class="bee-dialog-icon">
               <bee-icon :icon="icon" color="#ffffff" :font-size="50"></bee-icon>
             </div>
-            <div class="bee-t-loading-content">{{content || ''}}</div>
+            <div class="bee-dialog-content">{{content || ''}}</div>
           </div>
         </transition>
+
       </div>
     </transition>
+
   </div>
 </template>
 
@@ -81,28 +85,6 @@ export default {
   @import "./_bee-dialog";
 
   .bee-toast {
-    .bee-t-mask {
-
-    }
-    .bee-t-container {
-      justify-content: center;
-      align-items: center;
-    }
-    .bee-t-body {
-      background-color: $cl-bg-toast;
-      border-radius: 4px;
-      width: 50%;
-    }
-    .bee-t-loading-icon {
-      .bee-icon {
-        padding: 12px 0 6px 0;
-      }
-    }
-    .bee-t-loading-content {
-      color: #fff;
-      font-size: 1.2em;
-      padding: 12px 0;
-    }
   }
 </style>
 

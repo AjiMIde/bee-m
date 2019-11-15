@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import toastPlugin from './libs/beePlugin/toastPlugin'
+import dialogPlugin from './libs/beePlugin/dialogPlugin'
 
 Vue.config.productionTip = false
-Vue.use(toastPlugin)
+Vue.use(dialogPlugin)
 
 new Vue({
   router,

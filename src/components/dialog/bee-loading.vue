@@ -1,14 +1,14 @@
 <template>
-  <div class="bee-loading">
+  <div class="bee-dialog bee-loading">
 
-    <transition name="bee-loading-ani">
-      <div class="bee-l-container bee-fixed bee-fb-C" v-show="show">
-        <transition name="bee-loading-ani">
-          <div class="bee-l-body" v-show="show">
-            <div class="bee-l-loading-icon">
+    <transition name="bee-dialog-ani">
+      <div class="bee-dialog-container" v-show="show">
+        <transition name="bee-dialog-ani">
+          <div class="bee-dialog-body" v-show="show">
+            <div class="bee-dialog-icon">
               <bee-icon icon="loading-b" color="#ffffff" :font-size="50"></bee-icon>
             </div>
-            <div class="bee-l-loading-content" v-if="content !== ''">{{content || ''}}</div>
+            <div class="bee-dialog-content" v-if="content !== ''">{{content || ''}}</div>
           </div>
         </transition>
       </div>
@@ -76,25 +76,20 @@ export default {
   @import "./_bee-dialog";
 
   .bee-loading {
-    .bee-l-container {
-      justify-content: center;
-      align-items: center;
-    }
-    .bee-l-body {
-      background-color: $cl-bg-toast;
-      border-radius: 4px;
-      width: 50%;
-    }
-    .bee-l-loading-icon {
-      animation: linear 2s loading-rotate infinite;
-      .bee-icon {
-        padding: 12px 0 6px 0;
+    @keyframes loading-rotate {
+      0% {
+        transform: rotate(0);
+      }
+      50% {
+        transform: rotate(180deg);
+      }
+      100% {
+        transform: rotate(360deg);
       }
     }
-    .bee-l-loading-content {
-      color: #fff;
-      font-size: 1.2em;
-      padding: 12px 0;
+
+    .bee-dialog-icon {
+      animation: linear 2s loading-rotate infinite;
     }
   }
 </style>
