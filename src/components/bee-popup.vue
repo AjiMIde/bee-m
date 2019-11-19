@@ -10,10 +10,12 @@
             <slot></slot>
           </div>
         </transition>
-        <div class="bee-popup-close" @click="maskTap">
-          <svg class="bee-icon" aria-hidden="true" color="#fff">
-            <use xlink:href="#icon-close"></use>
-          </svg>
+        <div class="bee-popup-close" @click="closeTap">
+          <slot name="close">
+            <svg class="bee-icon" aria-hidden="true" color="#fff">
+              <use xlink:href="#icon-close"></use>
+            </svg>
+          </slot>
         </div>
       </div>
     </transition>
@@ -22,6 +24,7 @@
 
 <script>
 const EVENT_MASK_TAP = 'onMaskTap'
+const EVENT_CLOSE_TAP = 'onMaskTap'
 
 export default {
   props: {
@@ -39,7 +42,10 @@ export default {
   methods: {
     maskTap ($evt) {
       this.$emit(EVENT_MASK_TAP, '')
-    }
+    },
+    closeTap ($evt) {
+      this.$emit(EVENT_CLOSE_TAP, '')
+    },
   }
 }
 </script>

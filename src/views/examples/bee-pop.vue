@@ -2,6 +2,7 @@
   <div class="exp-bee-pop">
     <button @click="show=!show">{{show ? 'hide' : 'show'}}</button>
     <bee-popup :show="show" @onMaskTap="show=!show" >
+      <template #close> <span>?</span> </template>
       <div style="background-color: #fff;padding: 80px;">???!!!</div>
     </bee-popup>
   </div>

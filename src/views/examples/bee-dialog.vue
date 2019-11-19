@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     click () {
-      this.bee.showToast('操作成功！', 'success', 1500)
+      this.bee.showToast('操作成功！', 'success', 150000)
     },
     click2 () {
       this.bee.showToast('操作失败', 'fail', 1500)

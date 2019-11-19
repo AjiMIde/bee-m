@@ -1,3 +1,5 @@
+@import "../../../src/styles/base/variable/z-index.scss";
+
 .bee-dialog {
   $bee-dialog-trans: all 0.3s ease;
   .bee-dialog-ani {
@@ -17,6 +19,7 @@
     }
   }
 
+  z-index: $z-index-bee-dialog;
   text-align: center;
 
   .bee-dialog-container {
@@ -44,9 +47,7 @@
     .bee-dialog-content {
       color: #fff;
       font-size: 1.2em;
-      padding: 12px 0;
+      padding: 12px 4px;
     }
   }
-
-
 }
