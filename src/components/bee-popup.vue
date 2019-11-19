@@ -24,7 +24,7 @@
 
 <script>
 const EVENT_MASK_TAP = 'onMaskTap'
-const EVENT_CLOSE_TAP = 'onMaskTap'
+const EVENT_CLOSE_TAP = 'onCloseTap'
 
 export default {
   props: {
