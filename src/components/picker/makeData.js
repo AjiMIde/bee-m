@@ -38,6 +38,7 @@ function getYears (startY = 2014, endY) {
     startY++
   }
 
+  rs.push({ text: '' + 9999, value: '' + 9999 })
   return rs
 }
 

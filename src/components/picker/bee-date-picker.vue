@@ -95,9 +95,9 @@ export default {
       this.MColumnIndex = this.rowFormatAry.indexOf('M')
       this.dColumnIndex = this.rowFormatAry.indexOf('d')
       const newArray = this.rowFormatAry.map((item, index) => {
-        if (item === 'y') return getYears(1980, 2050)
+        if (item === 'y') return getYears(1970, 2080)
         if (item === 'M') return getMonths(1980)
-        if (item === 'd') return getDays(1980, 1)
+        if (item === 'd') return getDays(1970, 1)
         if (item === 'h') return getHours()
         if (item === 'm') return getMinutes()
         if (item === 's') return getSeconds()
