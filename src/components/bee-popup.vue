@@ -51,9 +51,9 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "../styles/base/variable/z-index";
-  @import "../styles/base/variable/color";
-  @import "../styles/bee.tool";
+  @import "../../styles/base/variable/z-index";
+  @import "../../styles/base/variable/color";
+  @import "../../styles/bee.tool";
 
   .bee-pop {
 

@@ -72,7 +72,7 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "../../styles/base/variable/color";
+  @import "../../../styles/base/variable/color";
   @import "./_bee-dialog";
 
   .bee-loading {

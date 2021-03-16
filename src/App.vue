@@ -14,7 +14,7 @@
 <script>
 import NavList from './views/nav'
 
-require('./styles/icon/iconfont')
+require('../styles/icon/iconfont')
 
 export default {
   components: {
@@ -76,16 +76,16 @@ export default {
   }
 
   // 全局 scss
-  @import "./styles/bee.reset";
-  @import "./styles/bee.markdown";
-  @import "./styles/bee.flex";
-  @import "./styles/bee.btn";
-  @import "./styles/bee.tool";
+  @import "../styles/bee.reset";
+  @import "../styles/bee.markdown";
+  @import "../styles/bee.flex";
+  @import "../styles/bee.btn";
+  @import "../styles/bee.tool";
 </style>
 
 <!--自定义的可阅读的小型格式-->
 <style lang="scss">
-  @import "./styles/base/variable/font";
+  @import "../styles/base/variable/font";
   html, body{
     height: 100%;
   }
