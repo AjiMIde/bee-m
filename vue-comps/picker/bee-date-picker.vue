@@ -33,7 +33,7 @@
  * 满足以下功能：
  * show(), hide(), confirm(date) 返回 date, props->dateVal 可传入 date 数据
  */
-import BScroll from './bscroll'
+import BScroll from 'better-scroll/dist/bscroll'
 import { getYears, getMonths, getDays, getHours, getMinutes, getSeconds } from './makeData'
 
 const STATE_HIDE = 0

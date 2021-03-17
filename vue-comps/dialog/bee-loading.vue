@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import '../../styles/icon/iconfont'
 import BeeIcon from '../bee-icon'
 
 export default {
@@ -72,8 +73,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "../../../styles/base/variable/color";
-  @import "./_bee-dialog";
+  @import "../../styles/base/variable/color";
+  @import "bee-dialog";
 
   .bee-loading {
     @keyframes loading-rotate {
